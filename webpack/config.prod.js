@@ -117,6 +117,7 @@ module.exports = {
     new webpack.optimize.UglifyJsPlugin(),
     new ServiceWorkerWebpackPlugin({
       entry: path.join(__dirname, '../src/sw.js'),
+      excludes: ['_redirects'],
     }),
   ],
 };
