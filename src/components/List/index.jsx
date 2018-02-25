@@ -5,6 +5,7 @@ import Filters from '../Filters';
 import Nav from '../Nav';
 import './style.scss';
 import LazyLoad from 'react-lazyload';
+import { Helmet } from 'react-helmet';
 
 class List extends Component {
   priceLevels = [25, 50, 100, 200];
@@ -27,6 +28,11 @@ class List extends Component {
 
     return (
       <div className="List__container">
+        <Helmet
+          title="Vines"
+          titleTemplate="Vivino.pl - %s"
+          htmlAttributes={{ lang: 'en', amp: undefined }}>
+        </Helmet>
         <Nav title="Top wines">
           <Filters
             className="Nav__filters"

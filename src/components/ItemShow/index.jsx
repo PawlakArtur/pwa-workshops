@@ -7,6 +7,7 @@ import BottleSvg from '../../svg-components/Bottle';
 import ItemDetail from '../ItemDetail';
 import Nav from '../Nav';
 import './style.scss';
+import { Helmet } from 'react-helmet';
 
 const ItemShow = ({ match, items, history }) => {
   const item = items[match.params.id - 1];
@@ -18,7 +19,11 @@ const ItemShow = ({ match, items, history }) => {
   return (
       <article className="ItemShow">
         <Nav back title={item.name} annotation={`${item.color}, ${item.region}, ${item.country}`} />
-
+        <Helmet
+          title={item.name}
+          titleTemplate="Vivino.pl - %s"
+          htmlAttributes={{ lang: 'en', amp: undefined }}>
+        </Helmet>
         <div className="ItemShow__inner">
           <img
             alt="country flag"
