@@ -2,7 +2,7 @@ $anim-time: .25s;
 $anim-offset: 10px;
 
 .fade-enter {
-  opacity: 1;
+  opacity: 0;
   transform: translateY($anim-offset);
 }
 
