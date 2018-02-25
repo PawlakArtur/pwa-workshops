@@ -6,6 +6,8 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const paths = require('./paths');
 const ServiceWorkerWebpackPlugin = require('serviceworker-webpack-plugin');
 const path = require('path');
+const StyleExtHtmlWebpackPlugin = require('StyleExtHtmlWebpackPlugin');
+const CompressionPlugin = require("compression-webpack-plugin");
 
 module.exports = {
   entry: [
@@ -118,6 +120,14 @@ module.exports = {
     new ServiceWorkerWebpackPlugin({
       entry: path.join(__dirname, '../src/sw.js'),
       excludes: ['_redirects'],
+    }),
+    new StyleExtHtmlWebpackPlugin(),
+    new CompressionPlugin({
+      asset: '[path].gz[query]',
+      algorithm: 'gzip',
+      test: /\.js$|\.css$|\.html$|\.eot?.+$|\.ttf?.+$|\.woff?.+$|\.svg?.+$/,
+      threshold: 10240,
+      minRatio: 0.8,
     }),
   ],
 };
