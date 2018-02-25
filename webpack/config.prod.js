@@ -6,7 +6,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const paths = require('./paths');
 const ServiceWorkerWebpackPlugin = require('serviceworker-webpack-plugin');
 const path = require('path');
-const StyleExtHtmlWebpackPlugin = require('StyleExtHtmlWebpackPlugin');
+const StyleExtHtmlWebpackPlugin = require('style-ext-html-webpack-plugin');
 const CompressionPlugin = require("compression-webpack-plugin");
 
 module.exports = {
