@@ -4,6 +4,7 @@ import ListItem from '../ListItem';
 import Filters from '../Filters';
 import Nav from '../Nav';
 import './style.scss';
+import LazyLoad from 'react-lazyload';
 
 class List extends Component {
   priceLevels = [25, 50, 100, 200];
@@ -37,7 +38,7 @@ class List extends Component {
 
         <ul className="List">
           {visibleItems.length ? visibleItems.map(item => (
-            <ListItem key={item.id} {...item} />
+            <LazyLoad height={200} overflow={true}><ListItem key={item.id} {...item} /></LazyLoad>
           )) : (
             <li className="List__empty">No items found.</li>
           )}
